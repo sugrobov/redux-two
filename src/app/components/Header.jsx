@@ -3,7 +3,7 @@ import React from 'react';
 function Header({ isMenuOpen, setIsMenuOpen }) {
 
     return (
-        <header className="bg-gray-800 text-white p-4 flex justify-between items-center rounded-tl-lg rounded-tr-lg">
+        <header className="bg-slate-800 text-white p-4 flex justify-between items-center rounded-tl-lg rounded-tr-lg">
             <h1 className="text-2xl font-bold">Мой Сайт</h1>
             <button
                 className="md:hidden" 
