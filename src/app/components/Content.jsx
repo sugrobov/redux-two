@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts, setDisplayedCount } from '../../features/productsSlice';
+import { fetchProducts, selectAllproducts, statusFetching } from '../../features/productsSlice';
+import GetList from '../containers/GetList';
 
 function Content() {
   const dispatch = useDispatch();
 
-  const products = useSelector(state => state.products.items);
-  const status = useSelector(state => state.products.status);
-  const display = useSelector(state => state.products.status);
+  const products = useSelector(selectAllproducts);  /** выбрали данные  */
+  const status = useSelector(statusFetching);       /** и статусы */
+
 
   const ref = useRef(false);
 
@@ -24,6 +25,9 @@ function Content() {
       <h2>Основной контент</h2>
  
       <p>Здесь будет основное содержимое страницы.</p>
+      <div className="flex flex-wrap justify-center gap-4 pt-4">
+        <GetList />
+      </div>
     </main>
   );
 }

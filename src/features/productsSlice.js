@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-// import { build } from "vite";
+
 
 const initialState = {
     items: [],
@@ -47,6 +47,10 @@ const productsSlice = createSlice({
     }
 
 });
+
+export const selectAllproducts = state => state.products.items; /** список продуктов */
+export const statusFetching = state => state.products.status;           /** статус */
+
 
 export const { setDisplayedCount } = productsSlice.actions;
 export default productsSlice.reducer;

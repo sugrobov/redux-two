@@ -8,18 +8,27 @@ export const handlers = [
         return HttpResponse.json([
             {
                 id: nanoid(),
-                firstName: 'John',
-                lastName: 'Lennon',
+                title: 'John',
+                image: 'https://via.placeholder.com/150',
+                price: '100',
+                description: 'some text 1',
+                published: true
             },
             {
                 id: nanoid(),
-                firstName: 'John',
-                lastName: 'Travolta',
+                title: 'John',
+                image: 'https://via.placeholder.com/150',
+                price: '150',
+                description: 'some text 2',
+                published: true
             },
             {
                 id: nanoid(),
-                firstName: 'John',
-                lastName: 'Sina',
+                title: 'John',
+                image: 'https://via.placeholder.com/150',
+                price: '155',
+                description: 'some text 3',
+                published: true
             }
         ])
     }),
