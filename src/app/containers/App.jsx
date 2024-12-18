@@ -6,8 +6,25 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from '../root';
 
 import '../../App.css';
+import Content from '../components/Content';
+import Add from '../containers/Add';
 
-const router = createBrowserRouter([{ path: '/', element: <Root /> }])
+const router = createBrowserRouter([
+  { 
+    path: '/', 
+    element: <Root />,
+    children: [
+      {
+        path: '/products',
+        element: <Content />
+      },
+      {
+        path: '/add',
+        element: <Add />
+      }
+    ]
+  }
+])
 
 function App() {
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Side({ isMenuOpen }) {
     const style = 'text-blue-800 underline hover:text-red-700 hover:no-underline';
@@ -9,9 +10,10 @@ function Side({ isMenuOpen }) {
                 }`}
         >
             <ul className='p-4'>
-                <li><a className={style} href="#">Ссылка 1</a></li>
-                <li><a className={style} href="#">Ссылка 2</a></li>
-                <li><a className={style} href="#">Ссылка 3</a></li>
+                <li><Link className={style} to={'/'}>Главная</Link></li>
+                <li><Link className={style} to={'/products'}>Список</Link></li>
+                <li><Link className={style} to={'/add'}>Добавить</Link></li>
+
             </ul>
         </aside>
     );
