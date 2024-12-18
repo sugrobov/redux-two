@@ -16,8 +16,8 @@ function Content() {
       if (ref.current) return;  /** устранение дублирования */
       ref.current = true;
 
-      dispatch(fetchProducts())
-  }, [status, dispatch]);
+      if (products.length === 0 && status === 'idle') dispatch(fetchProducts())
+  }, [status, dispatch, products]);
 
 
   return (

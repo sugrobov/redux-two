@@ -10,7 +10,7 @@ const initialState = {
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', 
-    async (count) => {
+    async () => {
         const response = await axios.get(
         `https://example.com/user`
         );
@@ -25,6 +25,9 @@ const productsSlice = createSlice({
         setDisplayedCount: (state, action) => {
             state.displayedCound = action.payload
         },
+        addProduct: (state, action) => {
+            state.items.push(action.payload)
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -52,5 +55,5 @@ export const selectAllproducts = state => state.products.items; /** список
 export const statusFetching = state => state.products.status;           /** статус */
 
 
-export const { setDisplayedCount } = productsSlice.actions;
+export const { setDisplayedCount, addProduct } = productsSlice.actions;
 export default productsSlice.reducer;
