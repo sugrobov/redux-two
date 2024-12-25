@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addProduct } from '../../features/productsSlice';
-import { nanoid } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Add() {
+import { updateProduct } from '../../features/productsSlice';
+
+function Edit() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [title, setTitle] = useState('');
-  const [published, setPublished] = useState(false);
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  let { id } = useParams();
+
+  const product = useSelector(state => state.products.items.find(note => note.id === id));
+
+
+  const [title, setTitle] = useState(product.title);
+  const [published, setPublished] = useState(product.published);
+  const [description, setDescription] = useState(product.description);
+  const [price, setPrice] = useState(product.price);
+
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -42,20 +50,22 @@ function Add() {
     }
 
     const newProduct = {
-      id: nanoid(),
+      // id: nanoid(),
       title,
       published,
       description,
       price: parseFloat(price),
     };
 
-    dispatch(addProduct(newProduct));
+    dispatch(updateProduct({
+      id: id,
+      title,
+      published,
+      description,
+      price: parseFloat(price),
+    }));
 
-    setTitle('');
-    setPublished(false);
-    setDescription('');
-    setPrice('');
-
+    navigate(`/view/${id}`)
 
   };
 
@@ -66,7 +76,7 @@ function Add() {
       className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[200px]"
       onSubmit={handleSubmit}
     >
-      <h2 className="text-2xl font-bold mb-4">Add New Product</h2>
+      <h2 className="text-2xl font-bold mb-4">Edit Product</h2>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
           Title
@@ -124,14 +134,14 @@ function Add() {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Add Product
+          Edit Product
         </button>
       </div>
     </form>
 </div>
   );
 
-  
+
 }
 
-export default Add;
+export default Edit;

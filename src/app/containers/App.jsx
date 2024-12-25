@@ -9,6 +9,8 @@ import Root from '../root';
 import '../../App.css';
 import Content from '../components/Content';
 import Add from '../containers/Add';
+import View from '../components/View';
+import Edit from './Edit';
 
 const router = createBrowserRouter([
   { 
@@ -22,7 +24,16 @@ const router = createBrowserRouter([
       {
         path: '/add',
         element: <Add />
-      }
+      },
+      {
+        path: '/view/:id',
+        element: <View />
+      },
+      {
+        path: '/edit/:id',
+        element: <Edit />
+      },
+
     ]
   }
 ])
