@@ -6,11 +6,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Root from '../root';
 
-import '../../App.css';
+// import '../../App.css';
 import Content from '../components/Content';
 import Add from '../containers/Add';
 import View from '../components/View';
 import Edit from './Edit';
+import Delete from './Delete';
 
 const router = createBrowserRouter([
   { 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/edit/:id',
         element: <Edit />
+      },
+      {
+        path: '/delete/:id',
+        element: <Delete />
       },
 
     ]

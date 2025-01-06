@@ -39,29 +39,47 @@ function Add() {
       // return;
     } else {
       setErrors({});
+      const newProduct = {
+        id: nanoid(),
+        title,
+        published,
+        description,
+        price: parseFloat(price),
+        date_added: new Date().toISOString(),
+      };
+  
+      dispatch(addProduct(newProduct));
+  
+      setTitle('');
+      setPublished(false);
+      setDescription('');
+      setPrice('');
+  
     }
 
-    const newProduct = {
-      id: nanoid(),
-      title,
-      published,
-      description,
-      price: parseFloat(price),
-    };
+    // const newProduct = {
+    //   id: nanoid(),
+    //   title,
+    //   published,
+    //   description,
+    //   price: parseFloat(price),
+    // };
 
-    dispatch(addProduct(newProduct));
+    // dispatch(addProduct(newProduct));
 
-    setTitle('');
-    setPublished(false);
-    setDescription('');
-    setPrice('');
+    // setTitle('');
+    // setPublished(false);
+    // setDescription('');
+    // setPrice('');
 
 
   };
-
+{/* <div className="p-4">  */}
+{/* <div className="p-4 flex-1"></div> */}
   return (
 
-<div className="p-4"> 
+
+<div className="p-4 flex-1">
     <form
       className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[200px]"
       onSubmit={handleSubmit}

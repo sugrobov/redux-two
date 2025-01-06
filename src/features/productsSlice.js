@@ -6,7 +6,7 @@ const initialState = {
     items: [],
     status: 'idle',
     error: null,
-    displayedCound: 8
+    displayedCount: 8
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts',
@@ -23,7 +23,7 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         setDisplayedCount: (state, action) => {
-            state.displayedCound = action.payload
+            state.displayedCount = action.payload
         },
         addProduct: (state, action) => {
             state.items.push(action.payload)
@@ -39,11 +39,9 @@ const productsSlice = createSlice({
                 isFound.price = price
             }
 
-
         },
         deleteProduct: (state, action) => {
-            const { id } = action.payload;
-            state.items = state.items.filter(note => note.id !== id)
+            state.items = state.items.filter(note => note.id !== action.payload)
         }
     },
     extraReducers: (builder) => {

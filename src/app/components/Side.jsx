@@ -1,20 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Side({ isMenuOpen }) {
-    const style = 'bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors duration-200';
+
+    const style = ({ isActive }) => {
+        return `flex items-center justify-center text-slate-700 p-2 border-b border-b-slate-200
+     hover:text-slate-900 hover:bg-slate-200
+     ${isActive ? 'bg-slate-300 text-slate-900 font-semibold' : ''}`;
+    };
 
     return (
         <aside
             className={`bg-slate-100 p-4 w-36 md:block  ${isMenuOpen ? 'block' : 'hidden'
                 }`}
         >
-            <div className='flex flex-col p-4 space-y-2'><Link className={style} to={'/'}>Главная</Link>
-                <Link className={style} to={'/products'}>Список</Link>
-                <Link className={style} to={'/add'}>Добавить</Link></div>
-
-
-
+            <div className='flex flex-col p-4 space-y-2'>
+                <NavLink className={style} to={'/'}>Главная</NavLink>
+                <NavLink className={style} to={'/products'}>Список</NavLink>
+                <NavLink className={style} to={'/add'}>Добавить</NavLink></div>
         </aside>
     );
 }
