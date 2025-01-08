@@ -7,7 +7,6 @@ function Card({ product }) {
     const navigate = useNavigate();
     const handleGoBack = () => navigate(-1);
 
-
     const location = useLocation();
     const isProductsPath = location.pathname === `/products`;
     
@@ -19,7 +18,8 @@ function Card({ product }) {
 
                 <img
                     className="w-full h-48 object-cover rounded mb-4"
-                    src={product.image}
+                    // src={product.image}
+                    src='https://via.placeholder.com/150'
                     alt={product.title}
                 />
                 <div className="flex justify-center items-center mb-4">

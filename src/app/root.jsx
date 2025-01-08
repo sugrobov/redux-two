@@ -8,7 +8,12 @@ import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
 
 function Root() {
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   return (
     <div className="flex flex-col h-screen">
@@ -21,7 +26,7 @@ function Root() {
       <Footer />
     </div>
   );
-
+  
 }
 
 export default Root;

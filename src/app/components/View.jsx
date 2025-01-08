@@ -19,8 +19,6 @@ function View({ product }) {
             <Card
                 key={id}
                 product={isFoundProduct}
-  
-
             />
         
 </div>

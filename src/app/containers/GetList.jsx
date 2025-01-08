@@ -19,7 +19,7 @@ function GetList({product}) {
         <button onClick={() => handleSetCount(product.length)}>All</button>
       </div> */}
  
-            {product.map(note => (
+            {product.slice(0, displayedCount).map(note => (
                 <Card
                     key={note.id}
                     product={note}

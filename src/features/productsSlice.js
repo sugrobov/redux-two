@@ -18,6 +18,14 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts',
     }
 );
 
+// export const addProductAsync = createAsyncThunk(
+//     'products/addProduct',
+//     (productData) => {
+//       const response = addProduct({...productData, imageUrl: productData.previewUrl || ''}); // add imageUrl if exist
+//       return response;
+//     }
+//   );
+
 const productsSlice = createSlice({
     name: 'products',
     initialState,
