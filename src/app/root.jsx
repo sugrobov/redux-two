@@ -11,15 +11,19 @@ function Root() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // const toggleMenu = () => {
-  //   setIsMenuOpen(!isMenuOpen);
-  // };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsMenuOpen(false);
+  }
 
   return (
-    <div className="flex flex-col h-screen">
-      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+    <div className="min-h-screen flex flex-col">
+      <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
       <div className="flex flex-1">
-        <Side isMenuOpen={isMenuOpen} />
+        <Side isMenuOpen={isMenuOpen} onClose={closeSidebar} />
         {/* <Content /> */}
         <Outlet />
       </div>

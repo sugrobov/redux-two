@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData, useLocation, useNavigate, useParams } from 'react-router-dom';
-import ButtonBack from './ButtonBack';
+
 
 function Card({ product }) {
 

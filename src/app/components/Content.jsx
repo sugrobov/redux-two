@@ -37,7 +37,7 @@ function Content() {
 
 
   return (
-    <main className="p-4 flex-1"> 
+    <main id="content" className="w-full md:w-3/4 bg-white p-4"> 
 
       <h2>Основной контент</h2>
       <div className="border-b border-gray-200">

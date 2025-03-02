@@ -79,7 +79,7 @@ function Add() {
   return (
 
 
-<div className="p-4 flex-1">
+<div className="p-4 max-w-sm mx-auto">
     <form
       className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[200px]"
       onSubmit={handleSubmit}
